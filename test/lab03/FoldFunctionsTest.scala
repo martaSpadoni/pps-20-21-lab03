@@ -18,6 +18,7 @@ class FoldFunctionsTest {
     assertEquals(0, foldLeft(Nil())(0)((x:Int, y:Int) => x+ y))
   }
 
+
   @Test def testFoldRight(): Unit ={
     assertEquals(-8, foldRight(list)(0)(_-_))
   }
