@@ -28,6 +28,7 @@ object ListFunctions {
     case _ => Nil()
   })
 
+  @tailrec
   def max(l: List[Int]):Option[Int] = l match {
     case Cons(h,t) => filter(t)(_ > h) match {
       case Nil() => Some(h)

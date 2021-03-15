@@ -75,6 +75,4 @@ class ListFunctionsTest {
     assertEquals(Some(25), max(list3))
   }
 
-
-
 }
