@@ -42,5 +42,14 @@ class ListFunctionsTest {
     assertEquals(Nil(), flatMap(emptyList)((v:Int) => Cons(v+1, Nil())))
   }
 
+  @Test def testMap(): Unit ={
+    val mapper : Int => String = {
+      case n if n > 10 => "a"
+      case _ => "b"
+    }
+    val expected = Cons("b", Cons("a", Cons("a", Nil())))
+    assertEquals(expected, ListFunctions.map(list)(mapper))
+  }
+
 
 }
