@@ -2,6 +2,7 @@ package lab03
 
 import org.junit.jupiter.api.Assertions._
 import org.junit.jupiter.api.Test
+import u02.Optionals.Option._
 
 
 class ListFunctionsTest {
@@ -10,6 +11,8 @@ class ListFunctionsTest {
   import u03.Lists.List._
 
   val list = Cons(10, Cons(20, Cons(30, Nil())))
+  val list2 = Cons(10, Cons(25, Cons(20, Nil())))
+  val list3 = Cons(10, Cons(25, Cons(25, Nil())))
 
   @Test def testDropOneElem(){
     assertEquals(Cons(20, Cons(30, Nil())), drop(list,1));
@@ -59,6 +62,19 @@ class ListFunctionsTest {
   @Test def testFilterNoElem(): Unit ={
     assertEquals(Nil(), ListFunctions.filter(list)(_ > 100))
   }
+
+  @Test def testMax() = {
+    assertEquals(Some(25), max(list2))
+  }
+
+  @Test def testMaxOnEmptyList() = {
+    assertEquals(None(), max(Nil()))
+  }
+
+  @Test def testMaxOnListWithTwoMax(): Unit ={
+    assertEquals(Some(25), max(list3))
+  }
+
 
 
 }

@@ -1,6 +1,5 @@
 package lab03
 
-import sun.invoke.empty.Empty
 
 import scala.annotation.tailrec
 
@@ -8,6 +7,8 @@ object ListFunctions {
 
   import u03.Lists._
   import List._
+  import u02.Optionals._
+  import u02.Optionals.Option._
 
   @tailrec
   def drop[A](l: List[A], n: Int): List[A] = l match {
@@ -26,5 +27,13 @@ object ListFunctions {
     case true => Cons(a, Nil())
     case _ => Nil()
   })
+
+  def max(l: List[Int]):Option[Int] = l match {
+    case Cons(h,t) => filter(t)(_ > h) match {
+      case Nil() => Some(h)
+      case _ => max(drop(l,1))
+    }
+    case Nil() => None()
+  }
 
 }
