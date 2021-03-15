@@ -27,4 +27,20 @@ class ListFunctionsTest {
     assertEquals(Nil(), drop(list,5));
   }
 
+  @Test def testFlatMap(): Unit ={
+    val expected = Cons(11, Cons(21, Cons(31, Nil())))
+    assertEquals(expected, flatMap(list)(v => Cons(v+1, Nil())))
+  }
+
+  @Test def testFlatMap2(): Unit ={
+    val expected = Cons(11, Cons(12, Cons(21, Cons(22, Cons(31, Cons(32, Nil()))))))
+    assertEquals(expected, flatMap(list)(v => Cons(v+1, Cons(v+2, Nil()))))
+  }
+
+  @Test def testFlatMapOnEmptyList(): Unit ={
+    val emptyList = Nil()
+    assertEquals(Nil(), flatMap(emptyList)((v:Int) => Cons(v+1, Nil())))
+  }
+
+
 }
