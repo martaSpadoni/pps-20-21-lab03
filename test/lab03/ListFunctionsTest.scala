@@ -51,5 +51,14 @@ class ListFunctionsTest {
     assertEquals(expected, ListFunctions.map(list)(mapper))
   }
 
+  @Test def testFilter(): Unit ={
+    val expected = Cons(20, Cons(30, Nil()))
+    assertEquals(expected, ListFunctions.filter(list)(_ > 10))
+  }
+
+  @Test def testFilterNoElem(): Unit ={
+    assertEquals(Nil(), ListFunctions.filter(list)(_ > 100))
+  }
+
 
 }

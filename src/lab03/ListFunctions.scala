@@ -22,4 +22,9 @@ object ListFunctions {
 
   def map[A,B](l: List[A])(mapper: A=>B): List[B] = flatMap(l)(a => Cons(mapper(a), Nil()))
 
+  def filter[A](l1: List[A])(pred: A=>Boolean): List[A] = flatMap(l1)(a => pred(a) match {
+    case true => Cons(a, Nil())
+    case _ => Nil()
+  })
+
 }
