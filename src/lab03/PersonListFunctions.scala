@@ -1,6 +1,6 @@
 package lab03
 
-object PersonLists {
+object PersonListFunctions {
 
   import u03.Lists._
   import u03.Lists.List._
