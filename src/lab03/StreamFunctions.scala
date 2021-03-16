@@ -16,7 +16,7 @@ object StreamFunctions {
   def constant[A](c: A): Stream[A] = iterate(c)(x => x)
 
   def fibonacci():Stream[Int] = {
-    def _fib( prev: => Int, actual: => Int) : Stream[Int] = cons(actual,_fib(actual, prev+actual))
+    def _fib( prev: Int, actual: Int) : Stream[Int] = cons(actual,_fib(actual, prev+actual))
     _fib(1, 0)
   }
 
