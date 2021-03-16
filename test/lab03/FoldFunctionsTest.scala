@@ -15,12 +15,15 @@ class FoldFunctionsTest {
   }
 
   @Test def testFoldLeftEmptyList(): Unit ={
-    assertEquals(0, foldLeft(Nil())(0)((x:Int, y:Int) => x+ y))
+    assertEquals(0, foldLeft(Nil())(0)((x:Int, y:Int) => x + y))
   }
-
 
   @Test def testFoldRight(): Unit ={
     assertEquals(-8, foldRight(list)(0)(_-_))
+  }
+
+  @Test def testFoldRightEmptyList(): Unit ={
+    assertEquals(0, foldRight(Nil())(0)((x:Int, y:Int) => x + y))
   }
 
 }
