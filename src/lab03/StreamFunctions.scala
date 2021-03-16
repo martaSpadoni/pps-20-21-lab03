@@ -7,7 +7,6 @@ object StreamFunctions {
   import u03.Streams._
   import u03.Streams.Stream._
 
-
   @tailrec
   def drop[A](stream: Stream[A])(n:Int):Stream[A] = (stream,n) match {
     case (Cons(_, tail), n) if n>0 => drop(tail())(n-1)
@@ -20,8 +19,5 @@ object StreamFunctions {
     def _fib( prev: => Int, actual: => Int) : Stream[Int] = cons(actual,_fib(actual, prev+actual))
     _fib(1, 0)
   }
-
-
-
 
 }
