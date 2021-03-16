@@ -18,34 +18,34 @@ class ListFunctionsTest {
     assertEquals(Cons(20, Cons(30, Nil())), drop(list,1));
   }
 
-  @Test def testDropTwoElem() {
+  @Test def testDropTwoElem(){
     assertEquals(Cons(30, Nil()), drop(list,2));
   }
 
   @Test def testDropAll(){
-    assertEquals(Nil(), drop(list,4));
+    assertEquals(Nil(), drop(list,3));
   }
 
-  @Test def testDropMoreElemThanListLength(): Unit ={
+  @Test def testDropMoreElemThanListLength(){
     assertEquals(Nil(), drop(list,5));
   }
 
-  @Test def testFlatMap(): Unit ={
+  @Test def testFlatMap(){
     val expected = Cons(11, Cons(21, Cons(31, Nil())))
     assertEquals(expected, flatMap(list)(v => Cons(v+1, Nil())))
   }
 
-  @Test def testFlatMap2(): Unit ={
+  @Test def testFlatMap2(){
     val expected = Cons(11, Cons(12, Cons(21, Cons(22, Cons(31, Cons(32, Nil()))))))
     assertEquals(expected, flatMap(list)(v => Cons(v+1, Cons(v+2, Nil()))))
   }
 
-  @Test def testFlatMapOnEmptyList(): Unit ={
+  @Test def testFlatMapOnEmptyList(){
     val emptyList = Nil()
     assertEquals(Nil(), flatMap(emptyList)((v:Int) => Cons(v+1, Nil())))
   }
 
-  @Test def testMap(): Unit ={
+  @Test def testMap(){
     val mapper : Int => String = {
       case n if n > 10 => "a"
       case _ => "b"
@@ -54,24 +54,24 @@ class ListFunctionsTest {
     assertEquals(expected, ListFunctions.map(list)(mapper))
   }
 
-  @Test def testFilter(): Unit ={
+  @Test def testFilter(){
     val expected = Cons(20, Cons(30, Nil()))
     assertEquals(expected, ListFunctions.filter(list)(_ > 10))
   }
 
-  @Test def testFilterNoElem(): Unit ={
+  @Test def testFilterNoElem(){
     assertEquals(Nil(), ListFunctions.filter(list)(_ > 100))
   }
 
-  @Test def testMax() = {
+  @Test def testMax(){
     assertEquals(Some(25), max(list2))
   }
 
-  @Test def testMaxOnEmptyList() = {
+  @Test def testMaxOnEmptyList(){
     assertEquals(None(), max(Nil()))
   }
 
-  @Test def testMaxOnListWithTwoMax(): Unit ={
+  @Test def testMaxOnListWithTwoMax(){
     assertEquals(Some(25), max(list3))
   }
 
