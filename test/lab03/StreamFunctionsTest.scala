@@ -4,9 +4,6 @@ import org.junit.jupiter.api.Assertions._
 import org.junit.jupiter.api.Test
 import u02.Optionals.Option._
 
-
-
-
 class StreamFunctionsTest {
 
   import u03.Streams._
